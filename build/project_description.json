@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "wwpirate-wwhf2024",
-    "project_version":    "1c7114e-dirty",
+    "project_version":    "fb30882-dirty",
     "project_path":       "/Users/cooperwiegand/ww-pirate-badge-fw",
     "idf_path":           "/Users/cooperwiegand/esp/v5.4/esp-idf",
     "build_dir":          "/Users/cooperwiegand/ww-pirate-badge-fw/build",
@@ -1240,7 +1240,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_lcd_sh1107", "espressif__esp_lvgl_port", "lvgl__lvgl" ],
             "file": "/Users/cooperwiegand/ww-pirate-badge-fw/build/esp-idf/main/libmain.a",
-            "sources": [ "/Users/cooperwiegand/ww-pirate-badge-fw/main/wwpirate_main.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic_n0decaf.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic_jose.c" ],
+            "sources": [ "/Users/cooperwiegand/ww-pirate-badge-fw/main/wwpirate_main.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic_n0decaf.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic_jose.c", "/Users/cooperwiegand/ww-pirate-badge-fw/main/badge_pic_notthatguy.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

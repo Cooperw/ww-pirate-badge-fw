@@ -24,9 +24,9 @@
 // ---------------------
 // Change Me
 // ---------------------
-#define HANDLE "joehacksalot"
-LV_IMG_DECLARE(dragon);
-#define RFID_CODE "32:ab:d7:40"
+#define HANDLE "notthatguy"
+LV_IMG_DECLARE(notthatguy);
+#define RFID_CODE "04:8c:d7:40"
 
 //#define HANDLE "shiloh"
 //LV_IMG_DECLARE(badge_pic);
@@ -36,16 +36,18 @@ LV_IMG_DECLARE(dragon);
 // LV_IMG_DECLARE(n0decaf);
 // #define RFID_CODE "bb:27:d8:40"
 
+// #define HANDLE "joehacksalot"
+// LV_IMG_DECLARE(dragon);
+// #define RFID_CODE "32:ab:d7:40"
+
 // ---------------------
 // LED Eyes
 // ---------------------
 //#define EYES_LEFT_GPIO  42       // wwhf2024deadwood
 //#define EYES_RIGHT_GPIO 41       // wwhf2024deadwood
-#define EYES_LEFT_GPIO  38       // wwhf2025denver
-#define EYES_RIGHT_GPIO 40       // wwhf2025denver
+#define EYES_LEFT_GPIO  42       // wwhf2025denver
+#define EYES_RIGHT_GPIO 41       // wwhf2025denver
 
-// 4, 47
-// 9, 
 
 // ---------------------
 // Useful Links for OLED
@@ -265,7 +267,7 @@ void build_oled_main() {
     // Create an image object on the screen
     lv_obj_t * img = lv_img_create(scr);
     //lv_img_set_src(img, &badge_pic);
-    lv_img_set_src(img, &dragon);
+    lv_img_set_src(img, &notthatguy);
     lv_obj_align(img, LV_ALIGN_TOP_MID, 0, 0);
     //lv_obj_align(img, LV_ALIGN_LEFT_MID, 0, 0);
 
