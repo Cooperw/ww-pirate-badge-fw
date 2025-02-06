@@ -10,18 +10,18 @@ if(NOT EXISTS "/Users/cooperwiegand/esp/v5.4/esp-idf/components/bootloader/subpr
   file(MAKE_DIRECTORY "/Users/cooperwiegand/esp/v5.4/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader"
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix"
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/tmp"
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/src/bootloader-stamp"
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/src"
-  "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/src/bootloader-stamp"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/tmp"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/src/bootloader-stamp"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/src"
+  "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/Users/cooperwiegand/wwpirate-wwhf2024/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/Users/cooperwiegand/ww-pirate-badge-fw/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

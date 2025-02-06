@@ -24,18 +24,28 @@
 // ---------------------
 // Change Me
 // ---------------------
-#define HANDLE "shiloh"
-LV_IMG_DECLARE(badge_pic);
-#define RFID_CODE "11:38:d9:40"
+#define HANDLE "joehacksalot"
+LV_IMG_DECLARE(dragon);
+#define RFID_CODE "32:ab:d7:40"
+
+//#define HANDLE "shiloh"
+//LV_IMG_DECLARE(badge_pic);
+//#define RFID_CODE "11:38:d9:40"
+
+// #define HANDLE "n0decaf"
+// LV_IMG_DECLARE(n0decaf);
+// #define RFID_CODE "bb:27:d8:40"
 
 // ---------------------
-// Button/LED Mapping
+// LED Eyes
 // ---------------------
-//#define BUTTON_LEFT  35       // wwhf2024deadwood
-//#define BUTTON_RIGHT 36       // wwhf2024deadwood
-#define BUTTON_LEFT  35         // wwhf2025denver
-#define BUTTON_RIGHT 36         // wwhf2025denver
+//#define EYES_LEFT_GPIO  42       // wwhf2024deadwood
+//#define EYES_RIGHT_GPIO 41       // wwhf2024deadwood
+#define EYES_LEFT_GPIO  38       // wwhf2025denver
+#define EYES_RIGHT_GPIO 40       // wwhf2025denver
 
+// 4, 47
+// 9, 
 
 // ---------------------
 // Useful Links for OLED
@@ -49,12 +59,17 @@ LV_IMG_DECLARE(badge_pic);
 // https://lvgl.io/tools/imageconverter
 
 // UFO/Circle group: 8 LEDs in order.
-const int ufo_gpios[] = {48, 17, 18, 21, 40, 47, 1, 2};
+const int ufo_gpios[] = {48, 17, 18, 21, 40, 47, 1, 2,35,36,37,38};
+// 1,2,3,4,5,6,7,8,9,10
+// 11,12,13,14,15,16,17,18,19,20 // will lock UART
+// 21,22,23,24,25,26,27,28,29,30 // partial 21,23,26,27,28
+// 31,32,33,34,35,36,37,38,39,40
+// 41,42,43,44,45,46,47,48,49,50
+// 51,52,53,54,55,56,57,58,59,60
 #define UFO_COUNT (sizeof(ufo_gpios) / sizeof(ufo_gpios[0]))
 
-// Eyes
-#define EYES_LEFT_GPIO  42
-#define EYES_RIGHT_GPIO 41
+#define BUTTON_LEFT  35
+#define BUTTON_RIGHT 36
 
 // Status (RGB)
 #define STATUS_RED_GPIO    3
@@ -249,13 +264,14 @@ void build_oled_main() {
 
     // Create an image object on the screen
     lv_obj_t * img = lv_img_create(scr);
-    lv_img_set_src(img, &badge_pic);
+    //lv_img_set_src(img, &badge_pic);
+    lv_img_set_src(img, &dragon);
     lv_obj_align(img, LV_ALIGN_TOP_MID, 0, 0);
     //lv_obj_align(img, LV_ALIGN_LEFT_MID, 0, 0);
 
     // Create a label object
     lv_obj_t * label = lv_label_create(scr);
-    lv_label_set_text(label, "shiloh");
+    lv_label_set_text(label, HANDLE);
     //lv_obj_align(label, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_obj_align(label, LV_ALIGN_BOTTOM_MID, 0, 0);
 }
@@ -351,6 +367,7 @@ void init_button_inputs(void)
     xTaskCreate(button_event_task, "button_event_task", 2048, NULL, 10, NULL);
 }
 
+// TODO func broken
 // Function that retrieves the MAC address and returns a pointer to a string
 void get_mac_address_str(void)
 {
