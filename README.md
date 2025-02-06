@@ -1,0 +1,9 @@
+
+Custom firmware to control lights, buttons, and the OLED screen!
+
+### Origional Writeup
+https://github.com/Cooperw/ctf/blob/master/2024-10-11-wwhf24/README.md
+
+### Origional Binaries
+https://wwhf2024.s3.amazonaws.com/v2/wwhf2024.bin
+https://wwhf2024.s3.amazonaws.com/v2/wwhf2025denver.bin
