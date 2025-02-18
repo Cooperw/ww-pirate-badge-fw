@@ -45,6 +45,7 @@ LV_IMG_DECLARE(notthatguy);
 // ---------------------
 //#define EYES_LEFT_GPIO  42       // wwhf2024deadwood
 //#define EYES_RIGHT_GPIO 41       // wwhf2024deadwood
+// The eyes are IR for Denver
 #define EYES_LEFT_GPIO  42       // wwhf2025denver
 #define EYES_RIGHT_GPIO 41       // wwhf2025denver
 
@@ -61,13 +62,7 @@ LV_IMG_DECLARE(notthatguy);
 // https://lvgl.io/tools/imageconverter
 
 // UFO/Circle group: 8 LEDs in order.
-const int ufo_gpios[] = {48, 17, 18, 21, 40, 47, 1, 2,35,36,37,38};
-// 1,2,3,4,5,6,7,8,9,10
-// 11,12,13,14,15,16,17,18,19,20 // will lock UART
-// 21,22,23,24,25,26,27,28,29,30 // partial 21,23,26,27,28
-// 31,32,33,34,35,36,37,38,39,40
-// 41,42,43,44,45,46,47,48,49,50
-// 51,52,53,54,55,56,57,58,59,60
+const int ufo_gpios[] = {48, 17, 18, 21, 40, 47, 1, 2};
 #define UFO_COUNT (sizeof(ufo_gpios) / sizeof(ufo_gpios[0]))
 
 #define BUTTON_LEFT  35
@@ -257,6 +252,56 @@ void status_effect_task(void *arg)
         ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4);
         
         vTaskDelay(pdMS_TO_TICKS(1500));
+
+        // Flash Red
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2, 255);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2);
+        vTaskDelay(pdMS_TO_TICKS(250));
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2, 0);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2);
+        vTaskDelay(pdMS_TO_TICKS(250));
+
+        // Flash Blue
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4, 255);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4);
+        vTaskDelay(pdMS_TO_TICKS(250));
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4, 0);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4);
+        vTaskDelay(pdMS_TO_TICKS(250));
+
+        // Flash Green
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3, 255);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3);
+        vTaskDelay(pdMS_TO_TICKS(250));
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3, 0);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3);
+        vTaskDelay(pdMS_TO_TICKS(250));
+
+        // If you want to flash once of every color instead of a random color
+        
+        // Flash Red
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2, 255);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2);
+        //vTaskDelay(pdMS_TO_TICKS(250));
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2, 0);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_2);
+        //vTaskDelay(pdMS_TO_TICKS(250));
+
+        //// Flash Blue
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4, 255);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4);
+        //vTaskDelay(pdMS_TO_TICKS(250));
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4, 0);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_4);
+        //vTaskDelay(pdMS_TO_TICKS(250));
+        
+        //// Flash Green
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3, 255);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3);
+        //vTaskDelay(pdMS_TO_TICKS(250));
+        //ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3, 0);
+        //ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_3);
+        //vTaskDelay(pdMS_TO_TICKS(250));
     }
 }
 
